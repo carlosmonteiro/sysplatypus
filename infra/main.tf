@@ -57,6 +57,13 @@ resource "aws_s3_object" "styles" {
   acl = "public-read"
 }
 
+resource "aws_s3_object" "image" {
+  bucket = aws_s3_bucket.websiteBucket.id
+  key    = "platyplus.jpg"
+  source = "../website/platyplus.jpg"
+  acl = "public-read"
+}
+
 resource "aws_s3_bucket_website_configuration" "website" {
   bucket = aws_s3_bucket.websiteBucket.id
 
